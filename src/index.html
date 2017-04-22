@@ -29,6 +29,7 @@
 		<script src="js/states/preloader.js"></script>
 		<script src="js/states/main-menu.js"></script>
 		<script src="js/states/game.js"></script>
+		<script src="js/states/level-complete.js"></script>		
 
 		<!-- Load in the associated classes -->
 		<script src="js/game/player.js"></script>
@@ -47,6 +48,7 @@
 				game.state.add('Boot', ludumDare.Boot);
 				game.state.add('Preloader', ludumDare.Preloader);
 				game.state.add('MainMenu', ludumDare.MainMenu);
+				game.state.add('LevelComplete', ludumDare.LevelComplete);				
 				game.state.add('Game', ludumDare.Game);
 				game.state.start('Boot');
 			};

@@ -26,7 +26,6 @@ ludumDare.Game.prototype = {
 
         var playerSpawn = this.activeClasses.mapLib.createMap();
 
-        console.log( playerSpawn );
         this.activeClasses.playerLib.characterSetup( playerSpawn.x, playerSpawn.y );
         this.activeClasses.playerLib.playerYBounds();
 
@@ -39,8 +38,7 @@ ludumDare.Game.prototype = {
         this.camera.fade('#000000', 1000);
 
         this.camera.onFadeComplete.add(function() {
-          // Obviously this needs to go to a seperate state
-          this.state.start('MainMenu'); 
+          this.state.start('LevelComplete'); 
         },this);        
 
     },
