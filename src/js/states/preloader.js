@@ -1,5 +1,5 @@
 
-zTeam.Preloader = function (game) {
+ludumDare.Preloader = function (game) {
 
 	this.background = null;
 	this.preloadBar = null;
@@ -8,7 +8,7 @@ zTeam.Preloader = function (game) {
 
 };
 
-zTeam.Preloader.prototype = {
+ludumDare.Preloader.prototype = {
 
 	preload: function () {
 

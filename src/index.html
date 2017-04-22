@@ -40,10 +40,10 @@
 
 				var game = new Phaser.Game(800, 477, Phaser.AUTO, 'gameContainer');
 
-				game.state.add('Boot', zTeam.Boot);
-				game.state.add('Preloader', zTeam.Preloader);
-				game.state.add('MainMenu', zTeam.MainMenu);
-				game.state.add('Game', zTeam.Game);
+				game.state.add('Boot', ludumDare.Boot);
+				game.state.add('Preloader', ludumDare.Preloader);
+				game.state.add('MainMenu', ludumDare.MainMenu);
+				game.state.add('Game', ludumDare.Game);
 				game.state.start('Boot');
 			};
 		</script>

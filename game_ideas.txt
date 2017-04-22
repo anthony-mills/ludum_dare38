@@ -1,0 +1,5 @@
+=== Game Ideas ===
+
+- A small asteroid floating through space. Over time a population of microbes evolves and reproduces. Every time the asteroid / world collides with space junk / other objects in space part of the population is kill
+
+- Island Hopper - Procedrally generated Islands ( https://github.com/luckylooke/phaser-islandjs-plugin.git ), fly or boat the inhabitents between the islands in as short a time possible
