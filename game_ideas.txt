@@ -1,5 +1,35 @@
 === Game Ideas ===
 
-- A small asteroid floating through space. Over time a population of microbes evolves and reproduces. Every time the asteroid / world collides with space junk / other objects in space part of the population is kill
+- A small asteroid floating through space. Over time a population of microbes evolves and reproduces. Every time the asteroid / world collides with space junk / other objects in space part of the population is killed.
 
-- Island Hopper - Procedrally generated Islands ( https://github.com/luckylooke/phaser-islandjs-plugin.git ), fly or boat the inhabitents between the islands in as short a time possible
+Pros:- Simple, the graphics are easy, can polish a lot in the 48 hours
+Cons:- Its not that innovative, and we made a space type game for JS48
+
+----------------------------------------------------------------------------------------------------------------------------
+
+- Island Hopper - Procedrally generated Islands ( https://github.com/luckylooke/phaser-islandjs-plugin.git ), fly or boat products and people between the islands in as short a time possible.
+
+Pros: It looks pretty cool, the islands are procedrally generated so the game stays fresh.
+Cons: The plugin seems to make the browser act a bit funny so debugging may be a major PITA. Voxel style graphics so we need a voxel style plane etc  
+
+----------------------------------------------------------------------------------------------------------------------------
+
+- An over populated world filled with people unable to stop breeding. Build a space program and get off the planet as soon as possible.
+
+Pros: Has popential for interesting game mechanics i.e as the population increases, access to resources for your space program dimishes.
+
+Cons: To do the concept justice it may be too time consuming to do it properly in 48 hours. So bug fixes and polish will ultimately suffer.
+
+----------------------------------------------------------------------------------------------------------------------------
+
+- The player is flying a rocket, a small planet is revolving around the sun. The rocket must hit the planet at just the right speed and angle to get caught in its orbit. Kind of a trajectory type challenge.
+
+Pros: Simple in theory. The trajectory mechanic when done correctly can be really addictive for the player.
+Cons: Body trajectories and velocities require alot of maths and maths is hard.
+
+----------------------------------------------------------------------------------------------------------------------------
+
+- The player controls a mouse stuck within a procedrally generated maze that you need to navigate in as quick a time possible
+
+Pros: Fairly easy to make so, extra time can be spent on polish
+Cons: Not overly innvative, just a dungeon crawler in a different format. You don't have much experience making that sort of game. Where can we get a good looking mouse from? are we drawing one?
