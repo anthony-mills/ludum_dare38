@@ -35,8 +35,28 @@ ludumDare.Game.prototype = {
         ludumDare.phaser.physics.startSystem( Phaser.Physics.ARCADE );
     },
 
+    finishLevel: function() {
+        this.camera.fade('#000000', 1000);
+
+        this.camera.onFadeComplete.add(function() {
+          // Obviously this needs to go to a seperate state
+          this.state.start('MainMenu'); 
+        },this);        
+
+    },
+
     update: function () {
-       this.activeClasses.playerLib.playerUpdate();
+        this.activeClasses.playerLib.playerUpdate();
+
+        var _self = this;
+        ludumDare.phaser.physics.arcade.overlap( ludumDare.playerObj, ludumDare.levelExit, function( playerObj, levelExit ) {
+            playerObj.body.velocity.x = 0;
+            playerObj.body.velocity.y = 0;
+
+            _self.finishLevel();
+        });
+
+        ludumDare.levelExit 
     },
 
     render: function()

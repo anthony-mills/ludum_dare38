@@ -39,6 +39,17 @@ ludumDare.Map.prototype = {
     },
 
     /**
+    * Spawn the level exit point
+    *
+    * param integer xLoc
+    * param integer yLoc
+    **/
+    spawnExitPoint: function ( xLoc, yLoc ) {
+      ludumDare.levelExit = ludumDare.phaser.add.sprite( xLoc, yLoc, 'levelExit');
+      ludumDare.phaser.physics.arcade.enable( ludumDare.levelExit );
+    },
+
+    /**
     * Create the level map
     *
     */
@@ -51,7 +62,7 @@ ludumDare.Map.prototype = {
 
       for (var y=0; y<this.mapSize.y; y+= this.tileSize) {
           for (var x=0; x<this.mapSize.x; x+=this.tileSize) {
-              var wall = ludumDare.levelMap.walls.create(x, y, "wall");
+              var wall = ludumDare.levelMap.walls.create(x, y, "levelWall");
               wall.body.immovable = true;
           }
       }
@@ -69,14 +80,20 @@ ludumDare.Map.prototype = {
               this.player.x = x + (w/2);
               this.player.y = y + (h/2);
           } else {
-              var new_x = ludumDare.phaser.math.snapToFloor(x + (w/2), this.tileSize);
-              var new_y = ludumDare.phaser.math.snapToFloor(y + (h/2), this.tileSize);
+
+              var newX = ludumDare.phaser.math.snapToFloor(x + (w/2), this.tileSize);
+              var newY = ludumDare.phaser.math.snapToFloor(y + (h/2), this.tileSize);
               
-              var prev_x = ludumDare.phaser.math.snapToFloor(this.lastRoomCoords.x, this.tileSize);
-              var prev_y = ludumDare.phaser.math.snapToFloor(this.lastRoomCoords.y, this.tileSize);
-              
-              this.createHTunnel(prev_x, new_x, prev_y, prev_y);
-              this.createVTunnel(prev_y, new_y, new_x);
+              var prevX = ludumDare.phaser.math.snapToFloor(this.lastRoomCoords.x, this.tileSize);
+              var prevY = ludumDare.phaser.math.snapToFloor(this.lastRoomCoords.y, this.tileSize);
+
+              // If its the 5th room spawn an exit
+              if (this.numRooms === 5) {
+                this.spawnExitPoint( prevX, prevY );
+              }
+
+              this.createHTunnel(prevX, newX, prevY, prevY);
+              this.createVTunnel(prevY, newY, newX);
           }
           
           this.lastRoomCoords = { x: x + (w/2), y: y + (h/2) };
@@ -104,7 +121,7 @@ ludumDare.Map.prototype = {
     },
     
     createFloor: function(x, y) {
-        fl = ludumDare.levelMap.floors.create(x, y, "floor");
+        fl = ludumDare.levelMap.floors.create(x, y, "levelFloor");
         ludumDare.phaser.physics.arcade.enable(fl);
 
         ludumDare.phaser.physics.arcade.overlap(fl, ludumDare.levelMap.walls, function(floor, wall) {

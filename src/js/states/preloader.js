@@ -22,8 +22,9 @@ ludumDare.Preloader.prototype = {
 
 		this.load.image('menuBg', 'img/tiles.jpg');	
 
-		this.load.image('wall', 'img/map/wall.png');
-		this.load.image('floor', 'img/map/floor.png');						
+		this.load.image('levelWall', 'img/map/wall.png');
+		this.load.image('levelFloor', 'img/map/floor.png');						
+		this.load.image('levelExit', 'img/map/exit.png');		
 	},
 
 	create: function () {
