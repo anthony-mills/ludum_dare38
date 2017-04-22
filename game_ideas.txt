@@ -16,7 +16,7 @@ Cons: The plugin seems to make the browser act a bit funny so debugging may be a
 
 - An over populated world filled with people unable to stop breeding. Build a space program and get off the planet as soon as possible.
 
-Pros: Has popential for interesting game mechanics i.e as the population increases, access to resources for your space program dimishes.
+Pros: Has potential for interesting game mechanics i.e as the population increases, access to resources for your space program dimishes.
 
 Cons: To do the concept justice it may be too time consuming to do it properly in 48 hours. So bug fixes and polish will ultimately suffer.
 

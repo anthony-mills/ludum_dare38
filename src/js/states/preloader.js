@@ -17,7 +17,13 @@ ludumDare.Preloader.prototype = {
 
 		this.load.setPreloadSprite(this.preloadBar);
 
-		// Assets to load down here
+		// Load in the player character
+		this.load.atlas('cockroachSprite', 'img/cockroach/cockroach.png', 'img/cockroach/cockroach.json');	
+
+		this.load.image('menuBg', 'img/tiles.jpg');	
+
+		this.load.image('wall', 'img/map/wall.png');
+		this.load.image('floor', 'img/map/floor.png');						
 	},
 
 	create: function () {
@@ -26,7 +32,7 @@ ludumDare.Preloader.prototype = {
 
 	update: function () {
 
-	    this.camera.fade('#000000');
+	    this.camera.fade('#000000', 1000);
 
 	    this.camera.onFadeComplete.add(function() {
 	      this.state.start('MainMenu'); 
