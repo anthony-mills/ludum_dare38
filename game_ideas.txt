@@ -33,3 +33,8 @@ Cons: Body trajectories and velocities require alot of maths and maths is hard.
 
 Pros: Fairly easy to make so, extra time can be spent on polish
 Cons: Not overly innvative, just a dungeon crawler in a different format. You don't have much experience making that sort of game. Where can we get a good looking mouse from? are we drawing one?
+
+
+----------------------------------------------------------------------------------------------------------------------------
+
+Super fast run with recharge meter to get the cockroach out of trouble

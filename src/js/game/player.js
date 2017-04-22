@@ -47,7 +47,7 @@ ludumDare.Player.prototype = {
                                           "walk_8.png",
                                           "walk_9.png",
                                           "walk_10.png"
-                                        ], 13, true);
+                                        ], 17, true);
       ludumDare.playerObj.body.maxVelocity.setTo(this.playerSpeed, this.playerSpeed);
 
       ludumDare.playerObj.anchor.setTo(0.5, 0.6);
