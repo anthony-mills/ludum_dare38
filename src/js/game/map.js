@@ -66,6 +66,9 @@ ludumDare.Map.prototype = {
     */
     createMap: function()
     {
+      // Increase the enemy number with the level
+      this.maxEnemies = Math.round(this.maxEnemies * ludumDare.phaser.levelData.current);
+
       ludumDare.levelMap.walls = ludumDare.phaser.add.group();
       ludumDare.levelMap.walls.enableBody = true;
             

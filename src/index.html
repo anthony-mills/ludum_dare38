@@ -56,6 +56,19 @@
 				game.state.add('GameInstructions', ludumDare.GameInstructions);											
 				game.state.add('Game', ludumDare.Game);
 				game.state.start('Boot');
+
+				var gameData = window.localStorage['game_data'];
+
+				if (typeof gameData === "undefined") {
+					game.levelData = {
+						'current' : 1,
+						'top_level': 1
+					}
+				    window.localStorage['game_data'] = JSON.stringify(game.levelData);
+				} else {
+				    game.levelData = JSON.parse( gameData ); 
+				}
+
 			};
 		</script>
 

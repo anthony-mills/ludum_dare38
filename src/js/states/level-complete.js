@@ -7,6 +7,10 @@ ludumDare.LevelComplete = function (game) {
 ludumDare.LevelComplete.prototype = {
 
 	create: function () {
+		// Increment the level number
+		ludumDare.phaser.levelData.current++;
+		window.localStorage['game_data'] = JSON.stringify(ludumDare.phaser.levelData);
+
 		this.playerControls = {};
 		this.audioSprite = ludumDare.phaser.add.audioSprite('gameSounds');
 		this.audioSprite.allowMultiple = false;	

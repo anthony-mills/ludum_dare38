@@ -27,12 +27,25 @@ ludumDare.MainMenu.prototype = {
 	    this.gameTitle.fixedToCamera = true;
 	    this.gameTitle.tint = 0xe12b0d;
 
-	    this.gameMsg = ludumDare.phaser.add.bitmapText(5, 250, 'chewyFont','Press i for instructions', 32);
+	    this.gameMsg = ludumDare.phaser.add.bitmapText(
+	    												5, 
+	    												180, 
+	    												'chewyFont',
+	    												'Current Level: ' + ludumDare.phaser.levelData.current, 
+	    												32
+	    											);
+
 	    this.gameMsg.x = (this.camera.width * 0.5 - (this.gameMsg.width * 0.5));
 	   	this.gameMsg.fixedToCamera = true;
 	    this.gameMsg.tint = 0x000000;
 
-	    this.gameMsg = ludumDare.phaser.add.bitmapText(5, 370, 'chewyFont','Space to start', 32);
+
+	    this.gameMsg = ludumDare.phaser.add.bitmapText(5, 280, 'chewyFont','Press i for instructions', 32);
+	    this.gameMsg.x = (this.camera.width * 0.5 - (this.gameMsg.width * 0.5));
+	   	this.gameMsg.fixedToCamera = true;
+	    this.gameMsg.tint = 0x000000;
+
+	    this.gameMsg = ludumDare.phaser.add.bitmapText(5, 390, 'chewyFont','Space to start', 32);
 	    this.gameMsg.x = (this.camera.width * 0.5 - (this.gameMsg.width * 0.5));
 	   	this.gameMsg.fixedToCamera = true;
 	    this.gameMsg.tint = 0x000000;
