@@ -29,7 +29,12 @@ ludumDare.Preloader.prototype = {
 		this.load.image('levelExit', 'img/map/exit.png');	
 
 		// Load in any required fonts
-		this.load.bitmapFont('chewyFont', 'fonts/chewy.png', 'fonts/chewy.fnt');	
+		this.load.bitmapFont('chewyFont', 'fonts/chewy.png', 'fonts/chewy.fnt');
+
+		// Load in the game audiosprite
+		var soundJson = this.cache.getText('gameSoundJSON');
+
+		this.load.audiosprite('gameSounds', 'sound/gameaudio.ogg', null,  soundJson);
 	},
 
 	create: function () {

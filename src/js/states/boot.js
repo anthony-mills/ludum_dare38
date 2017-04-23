@@ -38,6 +38,9 @@ ludumDare.Boot.prototype = {
         //  Here we load the assets required for our preloader (in this case a background and a loading bar)
         this.load.image('preloaderBackground', 'img/loading_bg.jpg');
         this.load.image('preloaderBar', 'img/loading.png');  
+
+        // Load in the assets here that are required before the preloader i.e sound sprite definitions etc
+        this.load.text('gameSoundJSON', 'sound/gameaudio.json');          
     },
 
     create: function () {
