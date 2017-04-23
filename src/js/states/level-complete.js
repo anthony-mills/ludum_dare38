@@ -1,7 +1,7 @@
 
 ludumDare.LevelComplete = function (game) {
 	ludumDare.phaser = game;
-	this.debugFps = true;
+	this.debugFps = false;
 };
 
 ludumDare.LevelComplete.prototype = {
@@ -24,6 +24,7 @@ ludumDare.LevelComplete.prototype = {
 	    this.continueMsg.x = (this.camera.width * 0.5 - (this.continueMsg.width * 0.5));
 	   	this.continueMsg.fixedToCamera = true;
 	    this.continueMsg.tint = 0x000000;
+	    ludumDare.phaser.add.tween(this.continueMsg).to( { alpha: 0 }, 2500, Phaser.Easing.Linear.None, true, 0, -1, true);	    
 
 		// Setup the spacebar 
 		this.playerControls.space = ludumDare.phaser.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR); 

@@ -30,6 +30,7 @@ ludumDare.GameOver.prototype = {
 	    this.gameMsg.x = (this.camera.width * 0.5 - (this.gameMsg.width * 0.5));
 	   	this.gameMsg.fixedToCamera = true;
 	    this.gameMsg.tint = 0x000000;
+	    ludumDare.phaser.add.tween(this.gameMsg).to( { alpha: 0 }, 2500, Phaser.Easing.Linear.None, true, 0, -1, true);
 
 		// Setup the spacebar 
 		this.playerControls.space = ludumDare.phaser.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR); 

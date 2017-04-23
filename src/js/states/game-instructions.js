@@ -24,6 +24,7 @@ ludumDare.GameInstructions.prototype = {
 	    this.continueMsg.x = (this.camera.width * 0.5 - (this.continueMsg.width * 0.5));
 	   	this.continueMsg.fixedToCamera = true;
 	    this.continueMsg.tint = 0x000000;
+	    ludumDare.phaser.add.tween(this.continueMsg).to( { alpha: 0 }, 2500, Phaser.Easing.Linear.None, true, 0, -1, true);
 
 	    this.showText( { 'x': 5, 'y' : 125 }, 'Hi my name is Kenny! I try not to be a bad bloke,');
 	    this.showText( { 'x': 5, 'y' : 155 }, 'just trying to get back to my roach hotel for a bit of shut eye.');
@@ -41,7 +42,6 @@ ludumDare.GameInstructions.prototype = {
         ludumDare.playerObj.play("idle");
 
         var roachHotel = ludumDare.phaser.add.sprite( 500, 180, 'levelExit');
-
 
 	    // Setup the spacebar 
 		this.playerControls.space = ludumDare.phaser.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);

@@ -42,7 +42,7 @@ ludumDare.Game.prototype = {
     },
 
     finishLevel: function() {
-        this.camera.fade('#000000', 1000);
+        this.camera.fade('#000000', 300);
 
         this.camera.onFadeComplete.add(function() {
           this.state.start('LevelComplete'); 
