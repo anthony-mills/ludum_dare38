@@ -8,8 +8,7 @@ ludumDare.Game.prototype = {
 
     create: function () {
         // Setup the background
-        this.menuBg = ludumDare.phaser.add.sprite( 0, 0, 'menuBg');
-        this.menuBg.fixedToCamera = true;
+        ludumDare.phaser.stage.backgroundColor = "#CCCCCC";
 
         ludumDare.playerControls = {};
         ludumDare.playerControls.cursors = ludumDare.phaser.input.keyboard.createCursorKeys();
@@ -68,7 +67,6 @@ ludumDare.Game.prototype = {
             enemyFire.kill();
         });
 
-        ludumDare.levelExit 
     },
 
     render: function()
