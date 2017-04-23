@@ -22,10 +22,14 @@ ludumDare.Preloader.prototype = {
 		this.load.atlas('spiderSprite', 'img/spider/spider.png', 'img/spider/spider.json');	
 
 		this.load.image('menuBg', 'img/tiles.jpg');	
+		this.load.image('menuNotepad', 'img/notepad.png');		
 
 		this.load.image('levelWall', 'img/map/wall.png');
 		this.load.image('levelFloor', 'img/map/floor.png');						
-		this.load.image('levelExit', 'img/map/exit.png');		
+		this.load.image('levelExit', 'img/map/exit.png');	
+
+		// Load in any required fonts
+		this.load.bitmapFont('chewyFont', 'fonts/chewy.png', 'fonts/chewy.fnt');	
 	},
 
 	create: function () {

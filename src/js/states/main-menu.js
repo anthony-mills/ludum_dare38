@@ -1,7 +1,7 @@
 
 ludumDare.MainMenu = function (game) {
 	ludumDare.phaser = game;
-	this.debugFps = true;
+	this.debugFps = false;
 };
 
 ludumDare.MainMenu.prototype = {
@@ -20,18 +20,24 @@ ludumDare.MainMenu.prototype = {
 
 		this.menuBg = ludumDare.phaser.add.sprite( 0, 0, 'menuBg');
 
-		this.gameTitle = ludumDare.phaser.add.text(0, 70, "Ludum Dare #38", textStyle);
-		this.gameTitle.x = (this.camera.width * 0.5 - (this.gameTitle.width * 0.5));
+	    this.gameTitle = ludumDare.phaser.add.bitmapText(5, 30, 'chewyFont','Kenny Cockroach', 112);
+	    this.gameTitle.x = (this.camera.width * 0.5 - (this.gameTitle.width * 0.5));
+	    this.gameTitle.fixedToCamera = true;
+	    this.gameTitle.tint = 0xe12b0d;
 
-		this.gameMsg = ludumDare.phaser.add.text(0, 200, "Space to start", textStyle);
-		this.gameMsg.x = (this.camera.width * 0.5 - (this.gameMsg.width * 0.5));
+	    this.gameMsg = ludumDare.phaser.add.bitmapText(5, 370, 'chewyFont','Space to start', 32);
+	    this.gameMsg.x = (this.camera.width * 0.5 - (this.gameMsg.width * 0.5));
+	   	this.gameMsg.fixedToCamera = true;
+	    this.gameMsg.tint = 0x000000;
+
+		this.notePad = ludumDare.phaser.add.sprite( 20, 120, 'menuNotepad');    
 
 		// Setup the spacebar 
 		this.playerControls.space = ludumDare.phaser.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR); 
 
 		// Show the player sprite
         this.playerLib = new ludumDare.Player();
-        this.playerLib.characterSetup(200, 200);
+        this.playerLib.characterSetup(195, 190);
 		ludumDare.playerObj.anchor.set(0.5);	        
 
 		ludumDare.playerObj.angle = 90;			
