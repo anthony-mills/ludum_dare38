@@ -1,0 +1,25 @@
+{
+  "resources": [
+    "gameaudio.ogg",
+    "gameaudio.m4a",
+    "gameaudio.mp3",
+    "gameaudio.ac3"
+  ],
+  "spritemap": {
+    "home_sweet_home": {
+      "start": 0,
+      "end": 1.0971428571428572,
+      "loop": false
+    },
+    "select": {
+      "start": 3,
+      "end": 4.14938775510204,
+      "loop": false
+    },
+    "venom_splash": {
+      "start": 6,
+      "end": 8.29877551020408,
+      "loop": false
+    }
+  }
+}
