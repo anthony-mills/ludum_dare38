@@ -8,6 +8,8 @@ ludumDare.GameOver.prototype = {
 
 	create: function () {
 		this.playerControls = {};
+		this.audioSprite = ludumDare.phaser.add.audioSprite('gameSounds');
+		this.audioSprite.allowMultiple = false;			
 
 		if (this.debugFps) {
 			this.game.time.advancedTiming = true;	
@@ -51,7 +53,8 @@ ludumDare.GameOver.prototype = {
 	},
 
 	returnToMenu: function () { 
-
+		this.audioSprite.play('select');
+		
 		this.camera.fade('#000000', 1000);
 
 		this.camera.onFadeComplete.add(function() {

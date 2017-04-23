@@ -8,6 +8,8 @@ ludumDare.MainMenu.prototype = {
 
 	create: function () {
 		this.playerControls = {};
+		this.audioSprite = ludumDare.phaser.add.audioSprite('gameSounds');
+		this.audioSprite.allowMultiple = false;
 
 		if (this.debugFps) {
 			this.game.time.advancedTiming = true;	
@@ -71,6 +73,7 @@ ludumDare.MainMenu.prototype = {
 	},
 
 	openInstructions: function () { 
+		this.audioSprite.play('select');
 
 		this.camera.fade('#000000', 1000);
 
@@ -81,6 +84,7 @@ ludumDare.MainMenu.prototype = {
 	},
 
 	startGame: function () { 
+		this.audioSprite.play('select');		
 
 		this.camera.fade('#000000', 1000);
 

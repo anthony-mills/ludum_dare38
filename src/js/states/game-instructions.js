@@ -1,13 +1,15 @@
 
 ludumDare.GameInstructions = function (game) {
 	ludumDare.phaser = game;
-	this.debugFps = true;
+	this.debugFps = false;
 };
 
 ludumDare.GameInstructions.prototype = {
 
 	create: function () {
 		this.playerControls = {};
+		this.audioSprite = ludumDare.phaser.add.audioSprite('gameSounds');
+		this.audioSprite.allowMultiple = false;		
 
 		if (this.debugFps) {
 			this.game.time.advancedTiming = true;	
@@ -71,6 +73,7 @@ ludumDare.GameInstructions.prototype = {
 	},
 
 	mainMenu: function () { 
+		this.audioSprite.play('select');
 
 		this.camera.fade('#000000', 1000);
 

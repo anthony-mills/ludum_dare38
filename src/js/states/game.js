@@ -1,7 +1,7 @@
 
 ludumDare.Game = function (game) {
     ludumDare.phaser = game;
-    this.debugFps = true;
+    this.debugFps = false;
 };
 
 ludumDare.Game.prototype = {
@@ -11,6 +11,9 @@ ludumDare.Game.prototype = {
         ludumDare.phaser.stage.backgroundColor = "#CCCCCC";
 
         ludumDare.playerControls = {};
+        ludumDare.soundSprite = ludumDare.phaser.add.audioSprite('gameSounds');
+        ludumDare.soundSprite.allowMultiple = true;
+
         ludumDare.playerControls.cursors = ludumDare.phaser.input.keyboard.createCursorKeys();
 
         if (this.debugFps) {
@@ -43,6 +46,7 @@ ludumDare.Game.prototype = {
 
     finishLevel: function() {
         this.camera.fade('#000000', 300);
+        ludumDare.soundSprite.play('home_sweet_home');
 
         this.camera.onFadeComplete.add(function() {
           this.state.start('LevelComplete'); 
@@ -66,7 +70,7 @@ ludumDare.Game.prototype = {
         * Destroy enemy projectiles that hit walls
         */
         ludumDare.phaser.physics.arcade.collide( ludumDare.enemyFire, ludumDare.levelMap.walls, function( enemyFire ) {
-            // @TODO Add in a sound effect of similar here 
+            ludumDare.soundSprite.play('venom_splash');
             enemyFire.kill();
         });
 
@@ -74,6 +78,7 @@ ludumDare.Game.prototype = {
         * Handle collisons between the player and enemy projectiles
         */
         ludumDare.phaser.physics.arcade.collide( ludumDare.playerObj, ludumDare.enemyFire, function( playerObj, enemyFire ) {
+            ludumDare.soundSprite.play('venom_splash');
             enemyFire.kill();
 
             _self.activeClasses.playerLib.killPlayer();
@@ -83,6 +88,7 @@ ludumDare.Game.prototype = {
         * Handle collisons between the player and actual enemies
         */
         ludumDare.phaser.physics.arcade.collide( ludumDare.playerObj, ludumDare.enemies, function( playerObj, enemyObj ) {
+            ludumDare.soundSprite.play('venom_splash');
             enemyObj.kill();
 
             _self.activeClasses.playerLib.killPlayer();

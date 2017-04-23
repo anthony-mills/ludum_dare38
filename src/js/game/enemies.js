@@ -142,6 +142,8 @@ ludumDare.Enemies.prototype = {
       if ( attackDiff > this.fireRate ) {
         enemyObj.lastFire = ludumDare.phaser.time.totalElapsedSeconds();
 
+        ludumDare.soundSprite.play('venom_splash');
+
         var enemyProjectile = ludumDare.phaser.add.sprite( fireLoc.x, fireLoc.y, 'spiderSprite', "venom.png");
 
         ludumDare.phaser.physics.enable( enemyProjectile, Phaser.Physics.ARCADE);
