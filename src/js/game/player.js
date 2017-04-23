@@ -77,6 +77,22 @@ ludumDare.Player.prototype = {
     },
 
     /**
+    * Something has happened to the player time to kill them off
+    *
+    */
+    killPlayer: function()
+    {
+      // @TODO A sound to mark the death would be good in here
+      ludumDare.playerObj.kill();
+
+      ludumDare.phaser.camera.fade('#F41111', 1000);
+
+      ludumDare.phaser.camera.onFadeComplete.add(function() {
+        ludumDare.phaser.state.start('GameOver'); 
+      },this);        
+    },
+
+    /**
     * Player update function
     */
     playerUpdate: function()

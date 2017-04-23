@@ -5,7 +5,7 @@ ludumDare.Enemies = function () {
   this.spiderSpeed = 50;
   this.spiderChargeSpeed = 300;
   this.chargeDistance = 400;
-  this.fireRate = 3500;
+  this.fireRate = 1500;
   this.projectileSpeed = 500;
 };
 

@@ -62,11 +62,22 @@ ludumDare.Game.prototype = {
             _self.finishLevel();
         });
 
-        ludumDare.phaser.physics.arcade.overlap( ludumDare.enemyFire, ludumDare.levelMap.walls, function( enemyFire ) {
-            // Add in a sound effect of similar here 
+        /**
+        * Destroy enemy projectiles that hit walls
+        */
+        ludumDare.phaser.physics.arcade.collide( ludumDare.enemyFire, ludumDare.levelMap.walls, function( enemyFire ) {
+            // @TODO Add in a sound effect of similar here 
             enemyFire.kill();
         });
 
+        /**
+        * Handle collisons between the player and enemy projectiles
+        */
+        ludumDare.phaser.physics.arcade.collide( ludumDare.playerObj, ludumDare.enemyFire, function( playerObj, enemyFire ) {
+            enemyFire.kill();
+                        
+            _self.activeClasses.playerLib.killPlayer();
+        });
     },
 
     render: function()
