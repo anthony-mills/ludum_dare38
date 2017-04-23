@@ -19,6 +19,7 @@ ludumDare.Preloader.prototype = {
 
 		// Load in the player character
 		this.load.atlas('cockroachSprite', 'img/cockroach/cockroach.png', 'img/cockroach/cockroach.json');	
+		this.load.atlas('spiderSprite', 'img/spider/spider.png', 'img/spider/spider.json');	
 
 		this.load.image('menuBg', 'img/tiles.jpg');	
 

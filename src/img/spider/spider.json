@@ -1,0 +1,60 @@
+{"frames": {
+
+"idle_1.png":
+{
+	"frame": {"x":1,"y":732,"w":65,"h":89},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":3,"w":65,"h":89},
+	"sourceSize": {"w":65,"h":92}
+},
+"walk_1.png":
+{
+	"frame": {"x":1,"y":1,"w":108,"h":147},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":6,"w":108,"h":147},
+	"sourceSize": {"w":108,"h":153}
+},
+"walk_2.png":
+{
+	"frame": {"x":1,"y":150,"w":106,"h":146},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":2,"y":6,"w":106,"h":146},
+	"sourceSize": {"w":108,"h":153}
+},
+"walk_3.png":
+{
+	"frame": {"x":1,"y":298,"w":106,"h":146},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":2,"y":6,"w":106,"h":146},
+	"sourceSize": {"w":108,"h":153}
+},
+"walk_4.png":
+{
+	"frame": {"x":1,"y":446,"w":104,"h":146},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":2,"y":6,"w":104,"h":146},
+	"sourceSize": {"w":108,"h":153}
+},
+"walk_5.png":
+{
+	"frame": {"x":1,"y":594,"w":104,"h":136},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":2,"y":16,"w":104,"h":136},
+	"sourceSize": {"w":108,"h":153}
+}},
+"meta": {
+	"app": "http://www.codeandweb.com/texturepacker",
+	"version": "1.0",
+	"image": "spider.png",
+	"format": "RGBA8888",
+	"size": {"w":110,"h":822},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:1e0d1bcd90363b5af326829fe0a16c83:b534448c247b18969f32c71841e56fa8:1061686de59298529f6a4fc7550209ec$"
+}
+}

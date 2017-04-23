@@ -11,11 +11,20 @@ ludumDare.Map = function () {
     this.lastRoomCenter = {x: 0, y: 0};
     this.numRooms = 0;
     this.numTiles = 0;
-    this.tileSize = 64;
-    
+    this.tileSize = 96;
+
+    this.numEnemies = 0;
+    this.maxEnemies = 5;
+
+    this.floorCount = 0;
+    this.lastEnemy = 0;
+
     this.player = {};
 
-    this.mapSize = { x: 2048, y: 2048 }
+    this.mapSize = { x: 3072, y: 2048 }
+
+    this.mapLocations = {};
+    this.mapLocations.enemies = [];
 };
 
 ludumDare.Map.prototype = {
@@ -45,6 +54,8 @@ ludumDare.Map.prototype = {
     * param integer yLoc
     **/
     spawnExitPoint: function ( xLoc, yLoc ) {
+      this.mapLocations.exit = { 'x': xLoc, 'y': yLoc }
+
       ludumDare.levelExit = ludumDare.phaser.add.sprite( xLoc, yLoc, 'levelExit');
       ludumDare.phaser.physics.arcade.enable( ludumDare.levelExit );
     },
@@ -76,11 +87,24 @@ ludumDare.Map.prototype = {
                           
           this.createRoom(x, x+w, y, y+h);
           
+          var spawnX = x + (w/2);
+          var spawnY = y + (h/2); 
+
           if (this.numRooms == 0) {                
-              this.player.x = x + (w/2);
-              this.player.y = y + (h/2);
+              this.mapLocations.player = { 'x' : spawnX, 'y' : spawnY };
           } else {
 
+              if ( (this.numRooms != this.lastEnemy) && (this.numEnemies < this.maxEnemies) ) {
+                this.lastEnemy = this.numRooms;
+                this.numEnemies++;
+
+                var enemyData = {
+                  'x' : spawnX, 
+                  'y' : spawnY 
+                }
+
+                this.mapLocations.enemies.push( enemyData );
+              }
               var newX = ludumDare.phaser.math.snapToFloor(x + (w/2), this.tileSize);
               var newY = ludumDare.phaser.math.snapToFloor(y + (h/2), this.tileSize);
               
@@ -102,7 +126,7 @@ ludumDare.Map.prototype = {
 
       ludumDare.phaser.physics.game.world.setBounds(0,0,this.mapSize.x,this.mapSize.y);;
 
-      return this.player;     
+      return this.mapLocations;     
     },
 
     getRandom: function(min, max) {
@@ -127,6 +151,8 @@ ludumDare.Map.prototype = {
         ludumDare.phaser.physics.arcade.overlap(fl, ludumDare.levelMap.walls, function(floor, wall) {
             wall.destroy();
         });
+
+        this.floorCount++;
 
         fl.destroy();
     },
