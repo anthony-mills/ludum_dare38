@@ -25,6 +25,11 @@ ludumDare.MainMenu.prototype = {
 	    this.gameTitle.fixedToCamera = true;
 	    this.gameTitle.tint = 0xe12b0d;
 
+	    this.gameMsg = ludumDare.phaser.add.bitmapText(5, 250, 'chewyFont','Press i for instructions', 32);
+	    this.gameMsg.x = (this.camera.width * 0.5 - (this.gameMsg.width * 0.5));
+	   	this.gameMsg.fixedToCamera = true;
+	    this.gameMsg.tint = 0x000000;
+
 	    this.gameMsg = ludumDare.phaser.add.bitmapText(5, 370, 'chewyFont','Space to start', 32);
 	    this.gameMsg.x = (this.camera.width * 0.5 - (this.gameMsg.width * 0.5));
 	   	this.gameMsg.fixedToCamera = true;
@@ -34,6 +39,9 @@ ludumDare.MainMenu.prototype = {
 
 		// Setup the spacebar 
 		this.playerControls.space = ludumDare.phaser.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR); 
+
+		// Setup the i key for instructions
+		this.playerControls.i = ludumDare.phaser.input.keyboard.addKey(Phaser.Keyboard.I);
 
 		// Show the player sprite
         this.playerLib = new ludumDare.Player();
@@ -48,6 +56,10 @@ ludumDare.MainMenu.prototype = {
 		if (this.playerControls.space.isDown) {
 			this.startGame();
 		}
+
+		if (this.playerControls.i.isDown) {
+			this.openInstructions();
+		}		
 	},
 
 	render: function()
@@ -55,6 +67,16 @@ ludumDare.MainMenu.prototype = {
 		if (this.debugFps) {
 			this.game.debug.text('render FPS: ' + (this.game.time.fps || '--') , 2, 14, "#00ff00");			
 		}
+
+	},
+
+	openInstructions: function () { 
+
+		this.camera.fade('#000000', 1000);
+
+		this.camera.onFadeComplete.add(function() {
+		  this.state.start('GameInstructions'); 
+		},this);		
 
 	},
 
