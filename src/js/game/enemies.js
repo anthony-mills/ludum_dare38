@@ -2,7 +2,7 @@
 * Class to manage the tutorial and levels
 */
 ludumDare.Enemies = function () {
-  this.spiderSpeed = 50;
+  this.spiderSpeed = 100;
   this.spiderChargeSpeed = 300;
   this.chargeDistance = 400;
   this.fireRate = 1500;

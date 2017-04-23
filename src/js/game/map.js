@@ -14,7 +14,7 @@ ludumDare.Map = function () {
     this.tileSize = 128;
 
     this.numEnemies = 0;
-    this.maxEnemies = 5;
+    this.maxEnemies = 15;
 
     this.floorCount = 0;
     this.lastEnemy = 0;

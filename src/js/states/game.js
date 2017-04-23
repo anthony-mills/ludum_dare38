@@ -75,9 +75,18 @@ ludumDare.Game.prototype = {
         */
         ludumDare.phaser.physics.arcade.collide( ludumDare.playerObj, ludumDare.enemyFire, function( playerObj, enemyFire ) {
             enemyFire.kill();
-                        
+
             _self.activeClasses.playerLib.killPlayer();
         });
+
+        /**
+        * Handle collisons between the player and actual enemies
+        */
+        ludumDare.phaser.physics.arcade.collide( ludumDare.playerObj, ludumDare.enemies, function( playerObj, enemyObj ) {
+            enemyObj.kill();
+
+            _self.activeClasses.playerLib.killPlayer();
+        });        
     },
 
     render: function()
@@ -86,9 +95,11 @@ ludumDare.Game.prototype = {
             this.game.debug.text('render FPS: ' + (this.game.time.fps || '--') , 2, 14, "#00ff00");         
         }
 
+        /*
         ludumDare.enemies.forEachAlive(function(activeEnemy) {
             ludumDare.phaser.debug.body(activeEnemy);
         }, this);
+        */
         // ludumDare.phaser.debug.body(ludumDare.playerObj);
     }
 };
