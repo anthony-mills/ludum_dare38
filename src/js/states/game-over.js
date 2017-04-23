@@ -20,11 +20,16 @@ ludumDare.GameOver.prototype = {
 
 		this.menuBg = ludumDare.phaser.add.sprite( 0, 0, 'menuBg');
 
-		this.levelComplete = ludumDare.phaser.add.text(0, 70, "Game Over!", textStyle);
-		this.levelComplete.x = (this.camera.width * 0.5 - (this.levelComplete.width * 0.5));
+	    this.gameOver = ludumDare.phaser.add.bitmapText(5, 30, 'chewyFont','Game Over!', 112);
+	    this.gameOver.x = (this.camera.width * 0.5 - (this.gameOver.width * 0.5));
+	    this.gameOver.fixedToCamera = true;
+	    this.gameOver.tint = 0xe12b0d;
 
-		this.continueMsg = ludumDare.phaser.add.text(0, 200, "Space to continue", textStyle);
-		this.continueMsg.x = (this.camera.width * 0.5 - (this.continueMsg.width * 0.5));
+
+	    this.gameMsg = ludumDare.phaser.add.bitmapText(5, 370, 'chewyFont','Space to continue', 32);
+	    this.gameMsg.x = (this.camera.width * 0.5 - (this.gameMsg.width * 0.5));
+	   	this.gameMsg.fixedToCamera = true;
+	    this.gameMsg.tint = 0x000000;
 
 		// Setup the spacebar 
 		this.playerControls.space = ludumDare.phaser.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR); 
