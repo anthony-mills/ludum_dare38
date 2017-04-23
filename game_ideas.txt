@@ -10,7 +10,7 @@ Cons:- Its not that innovative, and we made a space type game for JS48
 - Island Hopper - Procedrally generated Islands ( https://github.com/luckylooke/phaser-islandjs-plugin.git ), fly or boat products and people between the islands in as short a time possible.
 
 Pros: It looks pretty cool, the islands are procedrally generated so the game stays fresh.
-Cons: The plugin seems to make the browser act a bit funny so debugging may be a major PITA. Voxel style graphics so we need a voxel style plane etc  
+Cons: The plugin seems to make the browser act a bit funny so debugging may be a major PITA. Voxel style graphics so  need a voxel style plane etc  
 
 ----------------------------------------------------------------------------------------------------------------------------
 
@@ -36,5 +36,3 @@ Cons: Not overly innvative, just a dungeon crawler in a different format. You do
 
 
 ----------------------------------------------------------------------------------------------------------------------------
-
-Super fast run with recharge meter to get the cockroach out of trouble
