@@ -3,12 +3,17 @@
 */
 ludumDare.Enemies = function () {
   this.spiderSpeed = 50;
+  this.spiderChargeSpeed = 300;
+  this.chargeDistance = 400;
+  this.fireRate = 3500;
+  this.projectileSpeed = 500;
 };
 
 ludumDare.Enemies.prototype = {
 
    createEnemies: function() {
-      ludumDare.enemies = ludumDare.phaser.add.group();    
+      ludumDare.enemies = ludumDare.phaser.add.group();
+      ludumDare.enemyFire = ludumDare.phaser.add.group();          
    }, 
 
    spawnSpider: function( xLoc, yLoc ) {
@@ -23,11 +28,13 @@ ludumDare.Enemies.prototype = {
                         "walk_3.png",
                         "walk_5.png",
                         "walk_6.png"
-                      ], 6, true);
+                      ], 12, true);
 
       enemyObj.curFacing = 'north';
       enemyObj.body.velocity.y = this.spiderSpeed * -1;
       enemyObj.anchor.setTo(0.5, 0.6);
+      enemyObj.lastFire = 0;
+
       this.spiderYBounds( enemyObj, 30, 50 );      
 
       enemyObj.play("walk");
@@ -40,8 +47,6 @@ ludumDare.Enemies.prototype = {
         var _self = this;
 
         ludumDare.phaser.physics.arcade.collide( activeEnemy, ludumDare.levelMap.walls, function( enemyObj ) {
-
-          console.log(enemyObj.body.velocity);
 
           // Randomise the turn direction a little bit
           var turnDir = Math.round(Math.random());
@@ -79,12 +84,77 @@ ludumDare.Enemies.prototype = {
               } 
             break;                       
           }
-
-          console.log( enemyObj.curFacing );
         });
+
+        // Adjust the enemy spped if the play is near by     
+        var playerDistance = ludumDare.phaser.physics.arcade.distanceBetween( activeEnemy, ludumDare.playerObj );
+
+        if ( playerDistance < this.chargeDistance ) {   
+          // this.enemySpeed( activeEnemy );      
+
+          var radianBetween = ludumDare.phaser.math.angleBetween( activeEnemy.x, activeEnemy.y, ludumDare.playerObj.x, ludumDare.playerObj.y );
+          var angleBetween = ludumDare.phaser.math.radToDeg( radianBetween );
+
+          switch ( activeEnemy.curFacing ) {
+            case 'north':
+              if ( angleBetween > -120 && angleBetween < -70 ) {
+                var fireLoc = { 'x' : activeEnemy.x, 'y' : (activeEnemy.y - 50) }
+                this.enemyFire( activeEnemy, radianBetween, fireLoc );
+              }
+            break;
+
+            case 'east':
+              if ( angleBetween > -30 && angleBetween < 30 ) {
+                var fireLoc = { 'x' : (activeEnemy.x + 50), 'y' : activeEnemy.y }                
+                this.enemyFire( activeEnemy, radianBetween, fireLoc );
+              }
+            break;
+
+            case 'west':
+              if ( angleBetween < -160 && angleBetween < -100 ) {
+                var fireLoc = { 'x' : (activeEnemy.x - 50), 'y' : activeEnemy.y }                
+                this.enemyFire( activeEnemy, radianBetween, fireLoc );
+              }
+            break;
+
+            case 'south':
+              if ( angleBetween < 120 && angleBetween > 70 ) {
+                var fireLoc = { 'x' : activeEnemy.x, 'y' : (activeEnemy.y + 50) }
+                this.enemyFire( activeEnemy, radianBetween, fireLoc );
+              }
+            break;
+          }
+        }
 
       }, this)
     },
+
+    /**
+    * Shoot some venom at the player
+    *
+    * @param object enemyObj
+    * @param integer targetAngle
+    * @param object fireLoc
+    */
+    enemyFire: function( enemyObj, targetRadian, fireLoc ) {
+      var attackDiff = ( ludumDare.phaser.time.totalElapsedSeconds() - enemyObj.lastFire ) * 1000;
+
+      if ( attackDiff > this.fireRate ) {
+        enemyObj.lastFire = ludumDare.phaser.time.totalElapsedSeconds();
+
+        var enemyProjectile = ludumDare.phaser.add.sprite( fireLoc.x, fireLoc.y, 'spiderSprite', "venom.png");
+
+        ludumDare.phaser.physics.enable( enemyProjectile, Phaser.Physics.ARCADE);
+        enemyProjectile.anchor.setTo(0.5, 0.5);
+
+        enemyProjectile.outOfBoundsKill = true;
+
+        ludumDare.enemyFire.add( enemyProjectile );     
+
+        enemyProjectile.body.acceleration.x = Math.cos( targetRadian ) * this.projectileSpeed;
+        enemyProjectile.body.acceleration.y = Math.sin( targetRadian ) * this.projectileSpeed;         
+      }
+    }, 
 
     turnNorth: function( enemyObj ) {
       enemyObj.curFacing = 'north';
@@ -127,6 +197,32 @@ ludumDare.Enemies.prototype = {
         enemyObj.body.velocity.y = 0;
         enemyObj.angle = -90;              
         enemyObj.body.velocity.x = this.spiderSpeed * -1;
+      }
+    },
+
+    /**
+    * Set the speed of the enemy / charge if near the player
+    *
+    * @param object enemyObj
+    **/
+    enemySpeed: function( enemyObj ) {
+
+      switch ( enemyObj.curFacing ) {
+        case "north":
+          enemyObj.body.velocity.y = this.spiderChargeSpeed * -1;
+        break;
+
+        case "east":
+          enemyObj.body.velocity.x = this.spiderChargeSpeed;
+        break;
+
+        case "west":
+          enemyObj.body.velocity.x = this.spiderChargeSpeed * -1;
+        break;
+
+        case "south":
+          enemyObj.body.velocity.y = this.spiderChargeSpeed;
+        break;
       }
     },
 

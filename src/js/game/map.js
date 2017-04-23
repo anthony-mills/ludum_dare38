@@ -11,7 +11,7 @@ ludumDare.Map = function () {
     this.lastRoomCenter = {x: 0, y: 0};
     this.numRooms = 0;
     this.numTiles = 0;
-    this.tileSize = 96;
+    this.tileSize = 128;
 
     this.numEnemies = 0;
     this.maxEnemies = 5;
@@ -21,7 +21,7 @@ ludumDare.Map = function () {
 
     this.player = {};
 
-    this.mapSize = { x: 3072, y: 2048 }
+    this.mapSize = { x: 3072, y: 3072 }
 
     this.mapLocations = {};
     this.mapLocations.enemies = [];

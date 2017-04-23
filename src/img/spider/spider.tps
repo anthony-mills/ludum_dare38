@@ -194,6 +194,7 @@
         <array>
             <filename>walk</filename>
             <filename>idle</filename>
+            <filename>attack</filename>
         </array>
         <key>ignoreFileList</key>
         <array/>

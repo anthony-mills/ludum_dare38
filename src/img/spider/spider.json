@@ -8,6 +8,14 @@
 	"spriteSourceSize": {"x":0,"y":3,"w":65,"h":89},
 	"sourceSize": {"w":65,"h":92}
 },
+"venom.png":
+{
+	"frame": {"x":68,"y":732,"w":43,"h":40},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":1,"y":3,"w":43,"h":40},
+	"sourceSize": {"w":45,"h":45}
+},
 "walk_1.png":
 {
 	"frame": {"x":1,"y":1,"w":108,"h":147},
@@ -53,8 +61,8 @@
 	"version": "1.0",
 	"image": "spider.png",
 	"format": "RGBA8888",
-	"size": {"w":110,"h":822},
+	"size": {"w":112,"h":822},
 	"scale": "1",
-	"smartupdate": "$TexturePacker:SmartUpdate:1e0d1bcd90363b5af326829fe0a16c83:b534448c247b18969f32c71841e56fa8:1061686de59298529f6a4fc7550209ec$"
+	"smartupdate": "$TexturePacker:SmartUpdate:b461288bde837162130db2f6a97fcff3:38e7a05733489dcc8358614e3400ad16:1061686de59298529f6a4fc7550209ec$"
 }
 }

@@ -26,8 +26,6 @@ ludumDare.Game.prototype = {
 
         this.mapLocations = this.activeClasses.mapLib.createMap();
 
-        console.log( this.mapLocations );
-
         this.activeClasses.playerLib.characterSetup( this.mapLocations.player.x, this.mapLocations.player.y );
         this.activeClasses.playerLib.playerYBounds();
 
@@ -63,6 +61,11 @@ ludumDare.Game.prototype = {
             playerObj.body.velocity.y = 0;
 
             _self.finishLevel();
+        });
+
+        ludumDare.phaser.physics.arcade.overlap( ludumDare.enemyFire, ludumDare.levelMap.walls, function( enemyFire ) {
+            // Add in a sound effect of similar here 
+            enemyFire.kill();
         });
 
         ludumDare.levelExit 
