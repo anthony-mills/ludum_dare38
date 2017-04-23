@@ -19,6 +19,13 @@
 			    image-rendering: optimize-contrast;
 			    -ms-interpolation-mode: nearest-neighbor;
 			  }
+
+			  #textDescription {
+			  	margin: 0px auto;
+			  	width: 800px;
+			  	color: #fff;
+			  	font-size: 18px;
+			  }
   		</style>
 
 		<!-- load Phaser and its associated plugins -->
@@ -42,6 +49,14 @@
 	<body>
 
 		<div id="gameContainer"></div>
+
+		<div id="textDescription">
+			<h2>Kenny Cockroach</h2>
+			<p>This game was made by <a target="_blank" href="https://www.anthony-mills.com">Anthony Mills</a> over the weekend of 22nd / 23rd April as an entry to the Ludum Dare game jam.</p>
+			<p>As such this game comes with no warranties implied or expressed. It probably contains a lot of bugs.</p>
+			<p>If the disclaimer wasn't enough to put you off, gameplay is simple. Help Kenny Cockroach find his way back to his roach motel using the cursor keys on your keyboard.</p>
+			<p>Avoid the spiders and the venom balls they shoot at all costs, as they believe Kenny Cockroach would provide a tasty feed.</p>
+		</div>
 
 		<script type="text/javascript">
 			window.onload = function() {
